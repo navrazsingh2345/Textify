@@ -69,7 +69,7 @@ export default function Hero(props) {
   return (
     <>
       <div className="container my-3" >
-        <div className="mb-3" style={{color: props.mode==='dark'?'white':'black' , marginTop:"70px"}}>
+        <div className="mb-3" style={{color: props.mode==='dark'?'white':'black' }}>
           <h2>Fastest Tool to manipulate your text!!</h2>
           <textarea
             className={`form-control ${props.mode === 'dark' ? 'dark-textarea' : ''}`}
@@ -151,11 +151,10 @@ export default function Hero(props) {
       <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
         <h3>Text Summary:</h3>
         <p>
-          WordsCount: {text.split(" ").filter((element)=>{return element.length != 0}).length} words and{" "}
+          WordsCount: {text.split(" ").filter((element)=>{return element.length !== 0}).length} words and{" "}
           {text.length} characters <br />
-          Reading Time: {text.length > 0
-            ? 0.008 * text.split(" ").length
-            : 0}{" "}
+          Reading Time: {0.008 * text.split(" ").filter((element)=>{return element.length !== 0}).length}
+          {" "}
           mins{" "}
         </p>
         <hr className="bold-hr" />
